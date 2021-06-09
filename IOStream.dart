@@ -14,9 +14,12 @@ class IOStream {
   }
 
   IOStream operator <<(dynamic x){
+    //print('debug' + x.value);
+    //print('DEBUG: '+x.runtimeType.toString());
     if(x is IOStream){
       stdout.write(x.value);
     }else{
+      //print('\ndebug ${x}');
       stdout.write(x);
     }
 
@@ -32,6 +35,6 @@ IOStream cout = IOStream();
 IOStream cin  = IOStream();
 String endl = '\n';
 IOStream getline(IOStream stream,IOStream s){
-  s.value = stream.getline();
+  s.value = stream.getline().value;
   return s;
 }
